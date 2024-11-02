@@ -1,0 +1,37 @@
+# Maven
+target/
+*.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+
+
+
+# Visual Studio Code
+.vscode/
+
+
+
+# Archivos de configuración sensibles
+*.env
+*.env.*
+application-local.properties
+application-*.yml
+
+# Archivos de logs
+*.log
+logs/
+
+
+
+# Archivos temporales y de cache
+*.tmp
+.cache/
+tmp/
+.cache
