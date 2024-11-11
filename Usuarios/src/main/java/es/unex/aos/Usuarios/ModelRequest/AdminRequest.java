@@ -9,6 +9,9 @@ public class AdminRequest {
       private String iban;           // Cuenta de cargo (puede ser nulo)
   
       // Constructor
+      public AdminRequest() {
+      
+      }
       public AdminRequest(String userName, String userPassword, String email, String tlfNumber, String vat, String iban) {
           this.userName = userName;
           this.userPassword = userPassword;
@@ -66,5 +69,13 @@ public class AdminRequest {
       public void setIban(String iban) {
           this.iban = iban;
       }
+
+      @Override
+      public String toString() {
+            return "AdminRequest [userName=" + userName + ", userPassword=" + userPassword + ", email=" + email
+                        + ", tlfNumber=" + tlfNumber + ", vat=" + vat + ", iban=" + iban + "]";
+      }
+
+      
   }
   

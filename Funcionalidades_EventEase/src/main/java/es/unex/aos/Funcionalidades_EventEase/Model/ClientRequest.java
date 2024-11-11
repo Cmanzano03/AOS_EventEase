@@ -1,17 +1,24 @@
-package es.unex.aos.Usuarios.ModelRequest;
+package es.unex.aos.Funcionalidades_EventEase.Model;
 
-public class ClientRequest {
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class ClientRequest implements Serializable {
+      @JsonProperty("userName")
       private String userName;       // Nombre de usuario
+      @JsonProperty("userPassword")
       private String userPassword;   // Contraseña del usuario
+      @JsonProperty("email")
       private String email;          // Correo electrónico del usuario
+      @JsonProperty("tlfNumber")
       private String tlfNumber;      // Número de teléfono del usuario (puede ser opcional o nulo)
   
       // Constructor
-
       public ClientRequest() {
             
       }
-      
       public ClientRequest(String userName, String userPassword, String email, String tlfNumber) {
           this.userName = userName;
           this.userPassword = userPassword;
@@ -20,14 +27,15 @@ public class ClientRequest {
       }
   
       // Getters y Setters
+      
       public String getUserName() {
           return userName;
       }
-  
+
       public void setUserName(String userName) {
           this.userName = userName;
       }
-  
+      
       public String getUserPassword() {
           return userPassword;
       }

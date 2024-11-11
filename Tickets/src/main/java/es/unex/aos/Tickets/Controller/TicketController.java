@@ -44,8 +44,8 @@ public class TicketController {
       @PostMapping
       public ResponseEntity<Ticket> createTicket(@RequestBody TicketRequest ticketRequest){
             Ticket ticket = new Ticket(ticketRequest);
-            ticketRepository.addTicket(ticket); // Añadimos el ticket al repositorio
-            return new ResponseEntity<>(ticket, HttpStatus.CREATED); // Retorna el ticket creado con código 201
+            Ticket ticketReturn = ticketRepository.addTicket(ticket); // Añadimos el ticket al repositorio
+            return new ResponseEntity<>(ticketReturn, HttpStatus.CREATED); // Retorna el ticket creado con código 201
       }
 
       // Actualizar un ticket existente

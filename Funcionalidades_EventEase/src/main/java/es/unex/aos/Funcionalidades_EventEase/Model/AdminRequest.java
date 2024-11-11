@@ -1,22 +1,26 @@
-package es.unex.aos.Usuarios.ModelRequest;
+package es.unex.aos.Funcionalidades_EventEase.Model;
 
-public class ClientRequest {
+public class AdminRequest {
       private String userName;       // Nombre de usuario
       private String userPassword;   // Contraseña del usuario
       private String email;          // Correo electrónico del usuario
-      private String tlfNumber;      // Número de teléfono del usuario (puede ser opcional o nulo)
+      private String tlfNumber;      // Número de teléfono del usuario (puede ser nulo)
+      private String vat;            // Identificador fiscal de la empresa (no nulo)
+      private String iban;           // Cuenta de cargo (puede ser nulo)
   
       // Constructor
 
-      public ClientRequest() {
-            
+      public AdminRequest() {
+      
       }
       
-      public ClientRequest(String userName, String userPassword, String email, String tlfNumber) {
+      public AdminRequest(String userName, String userPassword, String email, String tlfNumber, String vat, String iban) {
           this.userName = userName;
           this.userPassword = userPassword;
           this.email = email;
           this.tlfNumber = tlfNumber;
+          this.vat = vat;
+          this.iban = iban;
       }
   
       // Getters y Setters
@@ -51,11 +55,29 @@ public class ClientRequest {
       public void setTlfNumber(String tlfNumber) {
           this.tlfNumber = tlfNumber;
       }
+  
+      public String getVat() {
+          return vat;
+      }
+  
+      public void setVat(String vat) {
+          this.vat = vat;
+      }
+  
+      public String getIban() {
+          return iban;
+      }
+  
+      public void setIban(String iban) {
+          this.iban = iban;
+      }
 
       @Override
       public String toString() {
-            return "ClientRequest [userName=" + userName + ", userPassword=" + userPassword + ", email=" + email
-                        + ", tlfNumber=" + tlfNumber + "]";
+            return "AdminRequest [userName=" + userName + ", userPassword=" + userPassword + ", email=" + email
+                        + ", tlfNumber=" + tlfNumber + ", vat=" + vat + ", iban=" + iban + "]";
       }
+
+      
   }
   

@@ -1,18 +1,15 @@
-package es.unex.aos.Usuarios.ModelRequest;
+package es.unex.aos.Funcionalidades_EventEase.Model;
 
-public class ClientRequest {
-      private String userName;       // Nombre de usuario
-      private String userPassword;   // Contraseña del usuario
-      private String email;          // Correo electrónico del usuario
-      private String tlfNumber;      // Número de teléfono del usuario (puede ser opcional o nulo)
-  
-      // Constructor
 
-      public ClientRequest() {
-            
-      }
-      
-      public ClientRequest(String userName, String userPassword, String email, String tlfNumber) {
+public abstract class User {
+      private Integer id;           
+      private String userName;      
+      private String userPassword;  
+      private String email;         
+      private String tlfNumber;     
+
+      // Constructor con todos los campos excepto el ID (que es autogenerado en el repositorio al insertarlos)
+      public User(String userName, String userPassword, String email, String tlfNumber) {
           this.userName = userName;
           this.userPassword = userPassword;
           this.email = email;
@@ -20,6 +17,14 @@ public class ClientRequest {
       }
   
       // Getters y Setters
+      public Integer getId() {
+          return id;
+      }
+  
+      public void setId(Integer id) {
+          this.id = id;
+      }
+  
       public String getUserName() {
           return userName;
       }
@@ -51,11 +56,8 @@ public class ClientRequest {
       public void setTlfNumber(String tlfNumber) {
           this.tlfNumber = tlfNumber;
       }
-
-      @Override
-      public String toString() {
-            return "ClientRequest [userName=" + userName + ", userPassword=" + userPassword + ", email=" + email
-                        + ", tlfNumber=" + tlfNumber + "]";
-      }
+      
+      // Método abstracto para cualquier comportamiento específico en subclases
+      public abstract void displayRole();
   }
   

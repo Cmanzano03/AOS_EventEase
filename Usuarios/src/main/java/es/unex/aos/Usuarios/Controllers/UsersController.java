@@ -48,7 +48,12 @@ public class UsersController {
 
       // Crear un nuevo cliente
       @PostMapping("/client")
-      public ResponseEntity<User> createClient(@RequestBody ClientRequest clientRequest) {
+      public ResponseEntity<User> createClient(@RequestBody ClientRequest clientRequest)
+       {
+            String mensaje = clientRequest.toString();
+            System.out.println("VALOR DE CLIENTREQUEST: " + mensaje);
+
+
             Client client = new Client(clientRequest);
             usersRepository.addUser(client);
             return ResponseEntity.status(HttpStatus.CREATED).body(client);
@@ -57,6 +62,9 @@ public class UsersController {
       // Crear un nuevo administrador
       @PostMapping("/admin")
       public ResponseEntity<User> createAdmin(@RequestBody AdminRequest adminRequest) {
+            
+            System.out.println("VALOR DE ADMINREQUEST: " + adminRequest.toString());
+
             Admin admin = new Admin(adminRequest);
             usersRepository.addUser(admin);
             return ResponseEntity.status(HttpStatus.CREATED).body(admin);
@@ -77,6 +85,8 @@ public class UsersController {
       // Eliminar un usuario por ID
       @DeleteMapping("/{id}")
       public ResponseEntity<Void> deleteUser(@PathVariable int id) {
+
+            
             boolean deleted = usersRepository.deleteUser(id);
             return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
       }

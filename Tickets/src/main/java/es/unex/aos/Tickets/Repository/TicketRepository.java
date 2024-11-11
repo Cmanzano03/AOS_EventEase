@@ -38,10 +38,11 @@ public class TicketRepository {
       }
 
       // Método para agregar un ticket al repositorio
-      public void addTicket(Ticket ticket) {
+      public Ticket addTicket(Ticket ticket) {
             int id = nextId.getAndIncrement(); // Obtenemos el siguiente ID autogenerado
             ticket.setId(id); // Asignamos el ID al ticket
             ticketMap.put(id, ticket); // Añadimos el ticket al mapa
+            return ticket; // Retornamos el ticket con el ID asignado
       }
 
       // Método para encontrar un ticket por su ID
