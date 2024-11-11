@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+# OJO!! El config server debe empaquetarse y lanzarse por separado antes de lanzar este script, dado que este necesita 
+# estar en ejecución para que los demás microservicios puedan obtener la configuración de sus propiedades durante el empaquetado.
+
 
 cd "/home/carlos/Documentos/AOS/Portfolio/Entrega_2/Actividad2/EurekaServer" || exit
 mvn clean package
