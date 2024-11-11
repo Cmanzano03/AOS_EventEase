@@ -15,6 +15,8 @@ import es.unex.aos.Funcionalidades_EventEase.Model.AdminRequest;
 import es.unex.aos.Funcionalidades_EventEase.Model.Client;
 import es.unex.aos.Funcionalidades_EventEase.Model.ClientRequest;
 import es.unex.aos.Funcionalidades_EventEase.Model.Event;
+import es.unex.aos.Funcionalidades_EventEase.Model.Ticket;
+import es.unex.aos.Funcionalidades_EventEase.Model.TicketRequest;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +64,20 @@ public class centralController {
             return restTemplate.getForEntity(userServiceUrl, Event.class);
       }
 
-      //
+      //Metodo para consultar todos los eventos
+      @GetMapping("/getEventos")
+      public ResponseEntity<Event[]> getEventos() {
+            String userServiceUrl = "http://Eventos/events";
+            return restTemplate.getForEntity(userServiceUrl, Event[].class);
+      }
+
+      //Metodo para comprar un ticket
+      @PostMapping("/comprarTicket")
+      public ResponseEntity<Ticket> comprarTicket(@RequestBody TicketRequest ticketRequest) {
+            String userServiceUrl = "http://Tickets/tickets";
+            return restTemplate.postForEntity(userServiceUrl, ticketRequest, Ticket.class);
+      }
+
+      
 
 }
